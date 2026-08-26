@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model EthicalReport {
+  id                   String      @id @default(uuid())
+  trackingCode         String      @unique
+  category             String
+  description          String
+  entityInvolved       String
+  status               String      @default("SUBMITTED")
+  encryptedEvidenceUrl String?
+  contactEmail         String?
+  createdAt            DateTime    @default(now())
+  updatedAt            DateTime    @updatedAt
+
+  auditLogs            AuditLog[]
+}
+
+model AuditLog {
+  id          String         @id @default(uuid())
+  reportId    String
+  report      EthicalReport  @relation(fields: [reportId], references: [id], onDelete: Cascade)
+  action      String
+  performedBy String
+  timestamp   DateTime       @default(now())
+  details     String // JSON representation
+}
+
+model ComplianceFramework {
+  id           String   @id @default(uuid())
+  code         String   @unique
+  title        String
+  organization String
+  description  String
+  status       String   @default("ACTIVE")
+}
