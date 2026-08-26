@@ -87,17 +87,18 @@ export default function AppCommandCenter() {
               <HeroSection />
             </motion.div>
           )}
-              <motion.div
-                key="philosophy"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.05 }}
-                transition={{ duration: 0.4 }}
-                className="w-full max-w-7xl"
-              >
-                <PhilosophyArchitecture />
-              </motion.div>
-            )}
+          {activeModule === "philosophy" && (
+            <motion.div
+              key="philosophy"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+              className="w-full max-w-7xl"
+            >
+              <PhilosophyArchitecture />
+            </motion.div>
+          )}
             {activeModule === "mitigation" && (
               <motion.div
                 key="mitigation"
