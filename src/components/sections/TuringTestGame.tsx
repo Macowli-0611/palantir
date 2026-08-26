@@ -90,6 +90,58 @@ export default function TuringTestGame() {
         )}
       </AnimatePresence>
 
+      {/* Celebración de Pirotecnia a Pantalla Completa (Éxito) */}
+      <AnimatePresence>
+        {feedback === "success" && (
+          <motion.div 
+            initial={{ opacity: 1 }} exit={{ opacity: 0 }} 
+            className="fixed inset-0 z-[9999] flex items-center justify-center pointer-events-none overflow-hidden"
+          >
+            {/* Rayos láser horizontales gigantes */}
+            <motion.div
+              initial={{ scaleX: 0, opacity: 1 }}
+              animate={{ scaleX: 1, opacity: 0, x: -1500 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              className="absolute right-1/2 h-2 w-[800px] origin-right bg-gradient-to-l from-cyan-palantir to-transparent shadow-[0_0_50px_#00E5FF]"
+            />
+            <motion.div
+              initial={{ scaleX: 0, opacity: 1 }}
+              animate={{ scaleX: 1, opacity: 0, x: 1500 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+              className="absolute left-1/2 h-2 w-[800px] origin-left bg-gradient-to-r from-cyan-palantir to-transparent shadow-[0_0_50px_#00E5FF]"
+            />
+            {/* Chispas Izquierda (Explosión masiva) */}
+            {[...Array(25)].map((_, i) => (
+              <motion.div
+                key={`spark-l-${i}`}
+                initial={{ scale: 0, x: 0, y: 0, opacity: 1 }}
+                animate={{ 
+                  scale: [0, Math.random() * 3 + 1, 0],
+                  x: -400 - Math.random() * 1200,
+                  y: -600 + Math.random() * 1200,
+                }}
+                transition={{ duration: 1 + Math.random() * 1.5, ease: "easeOut" }}
+                className="absolute w-3 h-1 rounded-full bg-cyan-palantir shadow-[0_0_30px_#00E5FF]"
+              />
+            ))}
+            {/* Chispas Derecha (Explosión masiva) */}
+            {[...Array(25)].map((_, i) => (
+              <motion.div
+                key={`spark-r-${i}`}
+                initial={{ scale: 0, x: 0, y: 0, opacity: 1 }}
+                animate={{ 
+                  scale: [0, Math.random() * 3 + 1, 0],
+                  x: 400 + Math.random() * 1200,
+                  y: -600 + Math.random() * 1200,
+                }}
+                transition={{ duration: 1 + Math.random() * 1.5, ease: "easeOut" }}
+                className="absolute w-3 h-1 rounded-full bg-cyan-palantir shadow-[0_0_30px_#00E5FF]"
+              />
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <motion.div 
         animate={feedback === "error" ? { x: [-20, 20, -15, 15, -10, 10, -5, 5, 0], transition: { duration: 0.5 } } : {}}
         className="w-full h-full flex flex-col items-center justify-center p-4 md:p-8 max-w-6xl mx-auto relative overflow-hidden"
@@ -147,58 +199,6 @@ export default function TuringTestGame() {
                 <span className="text-white px-4 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">RECORD: {currentIndex + 1}/{QUESTIONS.length}</span>
               </div>
             )}
-
-            {/* Celebración de Pirotecnia Mejorada (Más alcance, más cantidad) */}
-            <AnimatePresence>
-              {feedback === "success" && (
-                <motion.div 
-                  initial={{ opacity: 1 }} exit={{ opacity: 0 }} 
-                  className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
-                >
-                  {/* Rayos láser horizontales (más largos y brillantes) */}
-                  <motion.div
-                    initial={{ scaleX: 0, opacity: 1 }}
-                    animate={{ scaleX: 1, opacity: 0, x: -800 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
-                    className="absolute right-1/2 h-2 w-[400px] origin-right bg-gradient-to-l from-cyan-palantir to-transparent shadow-[0_0_30px_#00E5FF]"
-                  />
-                  <motion.div
-                    initial={{ scaleX: 0, opacity: 1 }}
-                    animate={{ scaleX: 1, opacity: 0, x: 800 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
-                    className="absolute left-1/2 h-2 w-[400px] origin-left bg-gradient-to-r from-cyan-palantir to-transparent shadow-[0_0_30px_#00E5FF]"
-                  />
-                  {/* Chispas Izquierda (20 partículas de gran alcance) */}
-                  {[...Array(20)].map((_, i) => (
-                    <motion.div
-                      key={`spark-l-${i}`}
-                      initial={{ scale: 0, x: 0, y: 0, opacity: 1 }}
-                      animate={{ 
-                        scale: [0, Math.random() * 2 + 1, 0],
-                        x: -300 - Math.random() * 800,
-                        y: -400 + Math.random() * 800,
-                      }}
-                      transition={{ duration: 0.8 + Math.random() * 1.5, ease: "easeOut" }}
-                      className="absolute w-3 h-1 rounded-full bg-cyan-palantir shadow-[0_0_25px_#00E5FF]"
-                    />
-                  ))}
-                  {/* Chispas Derecha (20 partículas de gran alcance) */}
-                  {[...Array(20)].map((_, i) => (
-                    <motion.div
-                      key={`spark-r-${i}`}
-                      initial={{ scale: 0, x: 0, y: 0, opacity: 1 }}
-                      animate={{ 
-                        scale: [0, Math.random() * 2 + 1, 0],
-                        x: 300 + Math.random() * 800,
-                        y: -400 + Math.random() * 800,
-                      }}
-                      transition={{ duration: 0.8 + Math.random() * 1.5, ease: "easeOut" }}
-                      className="absolute w-3 h-1 rounded-full bg-cyan-palantir shadow-[0_0_25px_#00E5FF]"
-                    />
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
 
             <AnimatePresence mode="popLayout">
               {!gameOver ? (
