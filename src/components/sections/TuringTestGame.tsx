@@ -144,7 +144,7 @@ export default function TuringTestGame() {
 
       <motion.div 
         animate={feedback === "error" ? { x: [-20, 20, -15, 15, -10, 10, -5, 5, 0], transition: { duration: 0.5 } } : {}}
-        className="w-full h-full flex flex-col items-center justify-center p-4 md:p-8 max-w-6xl mx-auto relative overflow-hidden scale-90 md:scale-95 origin-center"
+        className="w-full h-full flex flex-col items-center justify-center p-4 md:p-8 max-w-6xl mx-auto relative overflow-hidden scale-75 md:scale-85 origin-center"
       >
         {/* Header Simplificado */}
         <div className="text-center mb-8 shrink-0 w-full max-w-2xl mx-auto z-20">
