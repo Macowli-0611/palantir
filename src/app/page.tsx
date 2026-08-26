@@ -72,18 +72,17 @@ export default function AppCommandCenter() {
       </aside>
 
       {/* Main Content Area */}
-      <section className="relative z-10 flex-1 h-full overflow-y-auto overflow-x-hidden p-4 md:p-8 flex">
-        <div className="w-full m-auto flex flex-col items-center justify-center">
-          <AnimatePresence mode="wait">
-            {activeModule === "context" && (
-              <motion.div
-                key="context"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-                className="w-full max-w-7xl"
-              >
+      <section className="relative z-10 flex-1 h-full overflow-hidden flex items-center justify-center p-8">
+        <AnimatePresence mode="wait">
+          {activeModule === "context" && (
+            <motion.div
+              key="context"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+              className="w-full h-full"
+            >
               <HeroSection />
             </motion.div>
           )}
@@ -94,73 +93,72 @@ export default function AppCommandCenter() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 1.05 }}
               transition={{ duration: 0.4 }}
-              className="w-full max-w-7xl"
+              className="w-full h-full"
             >
               <PhilosophyArchitecture />
             </motion.div>
           )}
-            {activeModule === "mitigation" && (
-              <motion.div
-                key="mitigation"
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.4 }}
-                className="w-full max-w-7xl"
-              >
-                <BentoGridRiskMitigation />
-              </motion.div>
-            )}
-            {activeModule === "governance" && (
-              <motion.div
-                key="governance"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-                className="w-full max-w-7xl"
-              >
-                <GovernanceSection />
-              </motion.div>
-            )}
-            {activeModule === "dossier" && (
-              <motion.div
-                key="dossier"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.05 }}
-                transition={{ duration: 0.4 }}
-                className="w-full max-w-7xl"
-              >
-                <PolicyDocumentSection />
-              </motion.div>
-            )}
-            {activeModule === "game" && (
-              <motion.div
-                key="game"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.05 }}
-                transition={{ duration: 0.4 }}
-                className="w-full max-w-7xl"
-              >
-                <TuringTestGame />
-              </motion.div>
-            )}
-            {activeModule === "report" && (
-              <motion.div
-                key="report"
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.05 }}
-                transition={{ duration: 0.4 }}
-                className="w-full max-w-7xl"
-              >
-                <AnonymousReportForm />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+          {activeModule === "mitigation" && (
+            <motion.div
+              key="mitigation"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.4 }}
+              className="w-full h-full"
+            >
+              <BentoGridRiskMitigation />
+            </motion.div>
+          )}
+          {activeModule === "governance" && (
+            <motion.div
+              key="governance"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4 }}
+              className="w-full h-full"
+            >
+              <GovernanceSection />
+            </motion.div>
+          )}
+          {activeModule === "dossier" && (
+            <motion.div
+              key="dossier"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+              className="w-full h-full"
+            >
+              <PolicyDocumentSection />
+            </motion.div>
+          )}
+          {activeModule === "game" && (
+            <motion.div
+              key="game"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+              className="w-full h-full"
+            >
+              <TuringTestGame />
+            </motion.div>
+          )}
+          {activeModule === "report" && (
+            <motion.div
+              key="report"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+              className="w-full h-full"
+            >
+              <AnonymousReportForm />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
     </main>
   );
