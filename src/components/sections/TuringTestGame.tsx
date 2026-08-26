@@ -164,27 +164,27 @@ export default function TuringTestGame() {
             <>
               <motion.div 
                 style={{ opacity: textOpacityBroker }} 
-                className="absolute left-0 lg:left-10 top-0 bottom-0 z-0 flex flex-col items-start justify-center pointer-events-none w-1/3"
+                className="absolute -left-8 md:left-0 lg:left-10 top-0 bottom-0 z-0 flex flex-col items-start justify-center pointer-events-none w-1/3"
               >
-                <div className="flex flex-col md:flex-row items-center gap-4">
-                  <ArrowLeft className="w-12 h-12 md:w-20 md:h-20 text-red-500 animate-pulse" />
-                  <div className="hidden sm:block text-center md:text-left">
-                    <h3 className="text-2xl md:text-4xl lg:text-5xl font-black text-red-500 tracking-tighter drop-shadow-[0_0_20px_rgba(239,68,68,0.5)]">DATA BROKER</h3>
-                    <p className="text-red-400 font-mono text-xs md:text-sm uppercase mt-1">Práctica Ilegal</p>
+                <div className="flex flex-col xl:flex-row items-center gap-2 md:gap-4">
+                  <ArrowLeft className="w-10 h-10 md:w-16 md:h-16 text-red-500 animate-pulse" />
+                  <div className="hidden sm:block text-center xl:text-left">
+                    <h3 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-red-500 tracking-tighter drop-shadow-[0_0_20px_rgba(239,68,68,0.5)] leading-none">DATA<br className="xl:hidden"/> BROKER</h3>
+                    <p className="text-red-400 font-mono text-[10px] md:text-xs xl:text-sm uppercase mt-2">Práctica Ilegal</p>
                   </div>
                 </div>
               </motion.div>
 
               <motion.div 
                 style={{ opacity: textOpacityPalantir }} 
-                className="absolute right-0 lg:right-10 top-0 bottom-0 z-0 flex flex-col items-end justify-center pointer-events-none w-1/3"
+                className="absolute -right-8 md:right-0 lg:right-10 top-0 bottom-0 z-0 flex flex-col items-end justify-center pointer-events-none w-1/3"
               >
-                <div className="flex flex-col md:flex-row items-center gap-4">
-                  <div className="hidden sm:block text-center md:text-right">
-                    <h3 className="text-2xl md:text-4xl lg:text-5xl font-black text-cyan-palantir tracking-tighter drop-shadow-[0_0_20px_rgba(0,229,255,0.5)]">MODELO PALANTIR</h3>
-                    <p className="text-cyan-palantir font-mono text-xs md:text-sm uppercase mt-1">Práctica Segura</p>
+                <div className="flex flex-col xl:flex-row items-center gap-2 md:gap-4">
+                  <div className="hidden sm:block text-center xl:text-right">
+                    <h3 className="text-xl md:text-3xl lg:text-4xl xl:text-5xl font-black text-cyan-palantir tracking-tighter drop-shadow-[0_0_20px_rgba(0,229,255,0.5)] leading-none">MODELO<br className="xl:hidden"/> PALANTIR</h3>
+                    <p className="text-cyan-palantir font-mono text-[10px] md:text-xs xl:text-sm uppercase mt-2">Práctica Segura</p>
                   </div>
-                  <ArrowRight className="w-12 h-12 md:w-20 md:h-20 text-cyan-palantir animate-pulse" />
+                  <ArrowRight className="w-10 h-10 md:w-16 md:h-16 text-cyan-palantir animate-pulse" />
                 </div>
               </motion.div>
             </>
