@@ -9,21 +9,21 @@ const PILLARS = [
     icon: Server,
     title: "Infraestructura Soberana",
     desc: "Nosotros proveemos el software. Los datos permanecen estrictamente bajo el control legal del cliente.",
-    image: "/assets/media_1787780915383.png"
+    image: "/assets/image1.jpg"
   },
   {
     id: "zero-monetization",
     icon: Lock,
     title: "Cero Monetización",
     desc: "No reutilizamos, vendemos ni entrenamos modelos de IA con los datos de un cliente para otros clientes.",
-    image: "/assets/media_1787780923221.png"
+    image: "/assets/image2.jpg"
   },
   {
     id: "privacy-design",
     icon: ShieldCheck,
     title: "Privacidad por Diseño",
     desc: "Controles de acceso granulares y registros de auditoría inmutables integrados en el núcleo.",
-    image: "/assets/media_1787780934027.png"
+    image: "/assets/image1.jpg"
   }
 ];
 
@@ -93,11 +93,13 @@ export default function PhilosophyArchitecture() {
                   {activeData.desc}
                 </p>
               </div>
-              <div className="hidden lg:block w-[280px] h-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(0,229,255,0.15)] relative group">
-                <div className="absolute inset-0 bg-cyan-palantir/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10" />
-                <div className="absolute inset-0 border border-cyan-palantir/30 rounded-2xl z-20 pointer-events-none"></div>
-                <img src={activeData.image} alt={activeData.title} className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
-              </div>
+              {activeData.image && (
+                <div className="hidden lg:block w-[280px] h-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_30px_rgba(0,229,255,0.15)] relative group">
+                  <div className="absolute inset-0 bg-cyan-palantir/20 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500 z-10" />
+                  <div className="absolute inset-0 border border-cyan-palantir/30 rounded-2xl z-20 pointer-events-none"></div>
+                  <img src={activeData.image} alt={activeData.title} className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                </div>
+              )}
             </motion.div>
           </AnimatePresence>
         </div>
