@@ -8,6 +8,7 @@ const GOVERNANCE = [
     id: "pcl",
     icon: Shield,
     title: "Equipo PCL",
+    acronym: "Privacy and Civil Liberties",
     subtitle: "Privacidad y Libertades Civiles",
     desc: "Compuesto por abogados, ingenieros y científicos sociales. El equipo se enfoca en incorporar proactivamente la privacidad, la ética y los principios de derechos humanos directamente en los productos que ofrecemos y en las oportunidades que Palantir persigue.",
     color: "cyan-palantir"
@@ -16,7 +17,8 @@ const GOVERNANCE = [
     id: "pcap",
     icon: Users,
     title: "Consejo Asesor (PCAP)",
-    subtitle: "Oversight Independiente",
+    acronym: "Privacy & Civil Liberties Advisory Panel",
+    subtitle: "Panel Asesor Independiente",
     desc: "Un grupo de expertos internacionales independientes en derecho de privacidad, libertades civiles en tecnología, políticas y ética que nos ayudan a comprender y abordar los problemas complejos que encontramos en el curso de nuestro trabajo.",
     color: "emerald-grid"
   },
@@ -24,7 +26,8 @@ const GOVERNANCE = [
     id: "ngo",
     icon: Globe2,
     title: "Alianzas Humanitarias",
-    subtitle: "Aplicación sobre el terreno",
+    acronym: "Misiones sobre el terreno",
+    subtitle: "Aplicación y Respuesta Global",
     desc: "Nuestros productos son desplegados sobre el terreno por organizaciones como Polaris, C4ADS y otras entidades sin fines de lucro cuyas misiones dedicadas se centran en preservar y mejorar los derechos a la seguridad, la libertad frente al hambre y la esclavitud.",
     color: "amber-warning"
   }
@@ -78,7 +81,12 @@ export default function GovernanceSection() {
             
             <div className="relative z-20">
               <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-cyan-palantir transition-colors">{item.title}</h3>
-              <span className="text-[10px] md:text-xs font-mono uppercase text-text-muted group-hover:text-cyan-palantir/80 tracking-widest block mb-4 md:mb-6 transition-colors">{item.subtitle}</span>
+              {item.acronym && (
+                <div className="inline-block px-2.5 py-0.5 rounded-md bg-cyan-palantir/10 border border-cyan-palantir/20 text-[10px] md:text-xs font-mono text-cyan-palantir mb-2">
+                  {item.acronym}
+                </div>
+              )}
+              <span className="text-[10px] md:text-xs font-mono uppercase text-text-muted group-hover:text-cyan-palantir/80 tracking-widest block mb-4 md:mb-5 transition-colors">{item.subtitle}</span>
               
               <p className="text-xs md:text-sm text-text-primary leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
                 {item.desc}
